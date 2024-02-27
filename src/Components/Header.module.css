@@ -18,8 +18,9 @@
 .navLink {
   display: flex;
   & p {
+    letter-spacing: 0.09rem;
     color: #ffff;
-    font-weight: bold;
+    font-weight: 400;
     padding: 1rem;
     align-self: center;
     margin-right: 3rem;

@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  border-top: 1px solid #1e2d3d;
+  justify-content: space-between;
+}
+
+.footer svg {
+  width: 30px;
+  height: 22px;
+}
+
+.footer div {
+  display: flex;
+  border-right: 1px solid #1e2d3d;
+  margin-left: 1rem;
+  padding: 0.5rem;
+}
+
+.footer div a {
+  text-decoration: none;
+  color: #607b96;
+}
+
+.footer div:hover a {
+  color: white;
+  transition: 1s;
+}
+.footer div:hover svg {
+  fill: white;
+  transition: 1s;
+}
