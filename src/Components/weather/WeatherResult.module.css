@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-top: 10%;
+  transition: 1s;
+}
+
+.max {
+  color: #cb2c2a;
+}
+
+.min {
+  color: #2a65cb;
+}

@@ -1,0 +1,42 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: transparent;
+  border-bottom: 1px solid #caced1;
+  color: white;
+  cursor: pointer;
+  transition: 2s;
+}
+
+option {
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 38, 135, 0.37);
+}
