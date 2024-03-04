@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   color: white;
   justify-items: center;
+  align-items: center;
 }
 
 .container h1 {

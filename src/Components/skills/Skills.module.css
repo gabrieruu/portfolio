@@ -1,0 +1,28 @@
+.container {
+  text-align: center;
+  width: 30vw;
+  background: linear-gradient(
+    150.26deg,
+    rgba(23, 85, 83, 0.7) 1.7%,
+    rgba(67, 217, 173, 0.091) 81.82%
+  );
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(12, 22, 22, 1);
+}
+
+.container > div > div h5,
+span {
+  color: rgba(1, 12, 21, 1) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  font-size: 1rem;
+}
+.container > div > div > div > div {
+  width: 7rem !important;
+}
+
+.container h2 {
+  font-weight: 400;
+  font-size: 2rem;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
-import Weather from './weather/Weather';
+import Skills from './skills/Skills';
 
 const Home = () => {
   return (
@@ -24,7 +24,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <Weather />
+      <Skills />
     </section>
   );
 };
