@@ -4,6 +4,7 @@
   color: white;
   justify-items: center;
   align-items: center;
+  grid-column: 1 / -1;
 }
 
 .container h1 {
@@ -13,6 +14,8 @@
 
 .tittle {
   margin-bottom: 3rem;
+  background-size: cover;
+  z-index: 999;
 }
 
 .frontTittle {
@@ -23,4 +26,12 @@
 .gitLink {
   text-decoration: none;
   color: gray;
+}
+
+@media (max-width: 1250px) {
+  .container {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    text-align: center;
+  }
 }

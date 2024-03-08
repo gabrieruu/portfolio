@@ -1,5 +1,4 @@
 .nav {
-  display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #1e2d3d;
   font-size: 1rem;
@@ -13,17 +12,21 @@
   border-left: 1px solid #1e2d3d;
   border-right: 1px solid #1e2d3d;
   transition: color 0.5s;
+  text-align: center;
 }
 
-.navLink {
-  display: flex;
+.nav {
+  border-bottom: 1px solid #1e2d3d;
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   & p {
     letter-spacing: 0.09rem;
+    grid-column: 1/ 2;
     color: #ffff;
     font-weight: 400;
     padding: 1rem;
     align-self: center;
-    margin-right: 3rem;
   }
 }
 

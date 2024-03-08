@@ -43,7 +43,7 @@ const Skills = () => {
     },
   ];
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} animeRight`}>
       <h2>Skills</h2>
       <SkillBars skills={skillsData} />
     </div>

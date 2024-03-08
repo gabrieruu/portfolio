@@ -1,0 +1,14 @@
+.hideMenu {
+  display: none;
+}
+
+.showMenu {
+  display: flex;
+}
+
+.container {
+  color: white;
+  height: 71vh;
+  border-right: 1px solid #1e2d3d;
+  grid-column: 1/2;
+}

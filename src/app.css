@@ -2,9 +2,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-* {
   font-family: 'Fira Code', monospace;
   font-optical-sizing: auto;
   font-style: normal;
@@ -37,24 +34,56 @@ img {
 
 .app {
   margin: 4%;
+  /* background: url(../../src/assets/tetris.png) no-repeat center center;  */
   background-color: #011627;
   border: 1px solid #1e2d3d;
   border-radius: 0.5em;
 }
 
 .appMain {
-  height: 71vh;
+  min-height: 71vh;
+  background-color: #011627;
+  backdrop-filter: blur(25px);
   display: grid;
+  grid-template-columns: repeat(12, 1fr);
   align-items: center;
 }
 
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
-  animation: animeLeft 0.5s forwards;
+  animation: animeMoove 0.5s forwards;
 }
 
-@keyframes animeLeft {
+.animeRight {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: animeMoove 0.5s forwards;
+}
+
+.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-bottom: solid 3px #fea55f;
+  animation: border_anim linear forwards;
+}
+
+.active {
+}
+
+@keyframes border_anim {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes animeMoove {
   to {
     opacity: 1;
     transform: initial;

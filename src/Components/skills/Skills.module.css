@@ -1,6 +1,6 @@
 .container {
   text-align: center;
-  width: 30vw;
+  min-width: 30vw;
   background: linear-gradient(
     150.26deg,
     rgba(23, 85, 83, 0.7) 1.7%,
@@ -25,4 +25,12 @@ span {
 .container h2 {
   font-weight: 400;
   font-size: 2rem;
+}
+
+@media (max-width: 1250px) {
+  .container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-width: 82vw;
+  }
 }
