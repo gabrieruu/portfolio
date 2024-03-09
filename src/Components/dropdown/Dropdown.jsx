@@ -1,19 +1,43 @@
 import React from 'react';
 import styles from './Dropdown.module.css';
+import PageUp from '../../assets/PageUp';
+import { NavLink } from 'react-router-dom';
 
-const Dropdown = () => {
+const Dropdown = ({ data, text, custom, children, ...props }) => {
   const [active, setActive] = React.useState(true);
   return (
-    <aside className={`${styles.container}`}>
-      <h3 onClick={() => setActive(!active)}>Suco</h3>
+    <div className={`${styles.container} animeDown`}>
+      <p
+        className={`${styles.title}`}
+        style={{ color: active ? 'white' : '' }}
+        onClick={() => setActive(!active)}
+      >
+        {text}
+        <PageUp style={{ transform: active ? 'none' : 'rotate(180deg)' }} />
+      </p>
+
       <ul className={`${active ? styles.showMenu : styles.hideMenu}`}>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
+        {data
+          ? custom
+            ? children
+            : data.map((opt, index) => (
+                <li key={index}>
+                  <div>
+                    {opt.icon}
+                    <a
+                      href={opt.link}
+                      target="_blank"
+                      className="animeLeft"
+                      {...props}
+                    >
+                      {opt.text}
+                    </a>
+                  </div>
+                </li>
+              ))
+          : null}
       </ul>
-    </aside>
+    </div>
   );
 };
 

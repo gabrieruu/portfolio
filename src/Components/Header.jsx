@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <>
       <nav className={styles.nav}>
-        <p> Bem vindo!</p>
+        <p> Gabriel Majeski</p>
         <NavLink to="/">_home</NavLink>
         <NavLink to="/about">_sobre</NavLink>
         <NavLink to="/projects">_projetos</NavLink>

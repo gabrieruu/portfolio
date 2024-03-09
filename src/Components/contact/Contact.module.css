@@ -1,4 +1,12 @@
 .container {
+  grid-column: 3 / -1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.aside {
+  color: white;
+  height: 71vh;
+  border-right: 1px solid #1e2d3d;
+  grid-column: 1/3;
 }

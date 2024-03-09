@@ -34,7 +34,6 @@ img {
 
 .app {
   margin: 4%;
-  /* background: url(../../src/assets/tetris.png) no-repeat center center;  */
   background-color: #011627;
   border: 1px solid #1e2d3d;
   border-radius: 0.5em;
@@ -61,6 +60,18 @@ img {
   animation: animeMoove 0.5s forwards;
 }
 
+.animeTop {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: animeMoove 0.5s forwards;
+}
+
+.animeDown {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: animeMoove 0.5s forwards;
+}
+
 .active::before {
   content: '';
   position: absolute;
@@ -69,9 +80,6 @@ img {
   width: 0;
   border-bottom: solid 3px #fea55f;
   animation: border_anim linear forwards;
-}
-
-.active {
 }
 
 @keyframes border_anim {

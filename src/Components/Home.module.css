@@ -7,15 +7,17 @@
   grid-column: 1 / -1;
 }
 
+.tittle span:first-of-type {
+  color: #4d5bce !important;
+}
+
+.tittle span {
+  color: rgba(67, 217, 173, 1) !important;
+}
+
 .container h1 {
   font-size: 4rem;
   font-weight: 300;
-}
-
-.tittle {
-  margin-bottom: 3rem;
-  background-size: cover;
-  z-index: 999;
 }
 
 .frontTittle {
@@ -23,9 +25,17 @@
   color: #4d5bce;
 }
 
+.tittle div:first-child {
+  margin-bottom: 4rem;
+}
+
 .gitLink {
   text-decoration: none;
-  color: gray;
+  color: #e99287;
+}
+
+.gitLink:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 1250px) {

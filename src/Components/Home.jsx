@@ -13,12 +13,12 @@ const Home = () => {
         <div>
           <p>// Você pode visitar minha página no GitHub</p>
           <p>
-            const githubLink =
+            <span>const</span> <span>githubLink</span> ={' '}
             <a
               className={styles.gitLink}
               href="https://github.com/gabrielmajeski"
+              target="_blank"
             >
-              {' '}
               'https://github.com/gabrielmajeski'
             </a>
           </p>
