@@ -24,37 +24,37 @@ svg {
   transition: 0.3s ease;
 }
 
-ul li a {
+.menu li a {
   text-decoration: none;
   color: #607b96;
   transition: 0.3s ease;
 }
 
-ul li:hover a {
+.menu li:hover a {
   color: white;
 }
 
-ul li:hover svg {
+.menu li:hover svg {
   color: white;
 }
 
-ul li:hover {
+.menu li:hover {
   background-color: #fea55f;
   transition: 0.3s;
 }
 
-ul li svg {
+.menu li svg {
   width: 30px;
   height: 22px;
   color: #607b96;
   display: inline-block;
 }
 
-ul li {
+.menu li {
   padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
-ul li div {
+.menu li div {
   margin-top: 0.5rem;
   display: flex;
 }

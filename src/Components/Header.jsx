@@ -1,18 +1,44 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import HamburgerMenu from '../../src/assets/HamburgerMenu';
+import CloseButton from '../../src/assets/CloseButton';
 
 const Header = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleMenu = () => {
+    setIsOpen((isOpen) => !isOpen);
+  };
   return (
-    <>
-      <nav className={styles.nav}>
-        <p> Gabriel Majeski</p>
-        <NavLink to="/">_home</NavLink>
-        <NavLink to="/about">_sobre</NavLink>
-        <NavLink to="/projects">_projetos</NavLink>
-        <NavLink to="/contact">_contato</NavLink>
-      </nav>
-    </>
+    <nav className={styles.nav}>
+      <div className={styles.title}>
+        <p>gabriel-majeski</p>
+      </div>
+      <ul
+        onClick={() => setIsOpen(false)}
+        className={`animeTop ${isOpen ? styles.openMenu : ''} ${styles.navUl}`}
+      >
+        <li>
+          <NavLink to="/">_home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/about">_sobre</NavLink>
+        </li>
+        <li>
+          <NavLink to="/projects">_projetos</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">_contato</NavLink>
+        </li>
+      </ul>
+      <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
+        {isOpen ? (
+          <CloseButton onClick={toggleMenu} />
+        ) : (
+          <HamburgerMenu onClick={toggleMenu} />
+        )}
+      </div>
+    </nav>
   );
 };
 

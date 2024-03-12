@@ -4,18 +4,28 @@
   font-size: 1rem;
 }
 
-.nav a {
+.navUl {
+  display: flex;
+  grid-column: 3 / 12;
+  align-items: center;
+}
+
+.nav li {
   position: relative;
   padding: 20px;
-  text-decoration: none;
-  color: #607b96;
   border-left: 1px solid #1e2d3d;
   border-right: 1px solid #1e2d3d;
-  transition: color 0.5s;
   text-align: center;
 }
 
-.nav a:first-of-type {
+.nav li a {
+  padding: 20px;
+  text-decoration: none;
+  color: #607b96;
+  transition: color 0.5s;
+}
+
+.nav li:first-of-type {
   border-left: none;
 }
 
@@ -24,22 +34,37 @@
   font-size: 1rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  & p {
-    border-right: 1px solid #1e2d3d;
-    letter-spacing: 0.04rem;
-    grid-column: 1/ 3;
-    color: #ffff;
-    font-weight: 400;
-    padding: 1.3rem;
-    align-self: center;
-  }
 }
 
-.nav a:hover {
+.title {
+  border-right: 1px solid #1e2d3d;
+  letter-spacing: 0.04rem;
+  grid-column: 1/ 3;
+  color: rgba(96, 123, 150, 1);
+  font-weight: 400;
+  padding: 1.3rem;
+  align-self: center;
+}
+
+.openMenu {
+  z-index: 200;
+  display: flex !important;
+  flex-direction: column;
+  align-items: start;
+  grid-column: 1 / 3;
+  position: absolute;
+  top: 114px;
+  width: 91.7%;
+  height: 50%;
+  background: #011627;
+  border-bottom: 1px solid #1e2d3d;
+}
+
+.nav li a:hover {
   color: #ffff;
 }
 
-.nav a:hover::before {
+.nav li:hover::before {
   content: '';
   position: absolute;
   left: 0;
@@ -47,6 +72,54 @@
   width: 0;
   border-bottom: solid 3px #fea55f;
   animation: border_anim 0.5s linear forwards;
+}
+
+.menu svg {
+  width: 2rem;
+  cursor: pointer;
+  fill: rgba(96, 123, 150, 1);
+}
+
+.menu {
+  display: none;
+  transition: 0.5s ease;
+}
+
+@media (max-width: 1300px) {
+  .menu {
+    display: block;
+    grid-column: 12;
+  }
+  .navUl {
+    display: none;
+  }
+
+  .nav {
+    align-items: center;
+  }
+
+  .navUl li {
+    border: none;
+    border-bottom: 1px solid #1e2d3d;
+    width: 100%;
+    text-align: left;
+  }
+
+  .navUl li a {
+    color: white;
+    padding: 20px 82% 20px 0;
+  }
+
+  .title {
+    grid-column: 1/5;
+    border: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu svg {
+    margin-right: 25px;
+  }
 }
 
 @keyframes border_anim {

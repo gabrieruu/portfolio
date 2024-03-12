@@ -16,7 +16,11 @@ const Dropdown = ({ data, text, custom, children, ...props }) => {
         <PageUp style={{ transform: active ? 'none' : 'rotate(180deg)' }} />
       </p>
 
-      <ul className={`${active ? styles.showMenu : styles.hideMenu}`}>
+      <ul
+        className={`${active ? styles.showMenu : styles.hideMenu} ${
+          styles.menu
+        }`}
+      >
         {data
           ? custom
             ? children
