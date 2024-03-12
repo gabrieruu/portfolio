@@ -11,13 +11,20 @@
   border: 1px solid rgba(12, 22, 22, 1);
 }
 
-.container > div > div h5,
-span {
+.container > div > div h5 {
   color: rgba(1, 12, 21, 1) !important;
   box-shadow: none !important;
   font-weight: 500 !important;
   font-size: 1rem;
 }
+
+.container > div > div span {
+  color: rgba(1, 12, 21, 1) !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  font-size: 1rem;
+}
+
 .container > div > div > div > div {
   width: 7rem !important;
 }

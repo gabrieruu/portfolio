@@ -4,6 +4,91 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+form {
+  display: flex;
+  position: relative;
+  text-align: left;
+  flex-direction: column;
+  align-items: start;
+  color: white;
+  grid-column: 3/8;
+  margin: 0 auto;
+}
+
+form input,
+textarea {
+  border: 1px solid rgba(30, 45, 61, 1);
+  background: rgba(1, 18, 33, 1);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  color: rgba(96, 123, 150, 1);
+  width: 22rem;
+}
+
+form input:focus,
+textarea:focus {
+  outline: 1px solid rgba(96, 123, 150, 1);
+}
+
+form label,
+input,
+textarea {
+  display: block;
+}
+
+form label {
+  color: rgba(96, 123, 150, 1);
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+code::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 650px;
+  background: #1e2d3d;
+  position: absolute;
+  bottom: -90%;
+  left: -15%;
+  border-radius: 0.2rem;
+
+}
+
+form button {
+  background: rgba(28, 43, 58, 1);
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 1);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(30, 45, 61, 1);
+  font-weight: 450;
+  line-height: 18px;
+  letter-spacing: 0em;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+form button:hover {
+  color: rgba(28, 43, 58, 1);
+  background: #fea55f;
+}
+
+code > [data-line]:before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+code {
+  display: grid;
+  grid-column: 8/12;
+}
+
 .aside {
   color: white;
   height: 71vh;
