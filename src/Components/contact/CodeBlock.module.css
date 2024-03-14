@@ -1,0 +1,19 @@
+code > [data-line]:before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: gray;
+}
+
+code {
+  display: grid;
+}
+
+@media (max-width: 1250px) {
+  code {
+    display: none;
+  }
+}

@@ -4,7 +4,12 @@ import Dropdown from '../dropdown/Dropdown';
 import MailIcon from '../../assets/MailIcon';
 import WhatsIcon from '../../assets/WhatsappIcon';
 import useForm from '../../Hooks/useForm';
+import useFetch from '../../Hooks/useFetch';
 import Input from '../form/Input';
+import { FORM_POST } from '../../api';
+import CodeBlock from './CodeBlock';
+import FormSent from './FormSent';
+import { useState } from 'react';
 
 const opts = [
   {
@@ -20,87 +25,71 @@ const opts = [
 ];
 
 const Contact = () => {
-  const date = new Date();
-  const options = {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  };
   const firstName = useForm('');
   const email = useForm('email');
+  const [msgSent, setMsgSent] = useState(true);
+  const { error, loading, request } = useFetch();
   const [message, setMessage] = React.useState('');
 
-  console.log();
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const body = new FormData();
+    body.append('name', firstName.value);
+    body.append('email', email.value);
+    body.append('message', message);
+    const { url, options } = FORM_POST(body);
+    const { response } = await request(url, options);
+    if (response.ok) {
+      setMsgSent(true);
+      firstName(null);
+    }
+  }
 
   return (
     <>
       <aside className={styles.aside}>
         <Dropdown data={opts} custom={false} text={'contatos'}></Dropdown>
       </aside>
-
-      <form action="" className="animeLeft">
-        <Input
-          label={'_nome:'}
-          type="text"
-          name="firstName"
-          {...firstName}
-        ></Input>
-        <Input label={'_email:'} type="text" name="email" {...email}></Input>
-        <div>
-          <label htmlFor="message">_mensagem:</label>
-          <textarea
-            id="message"
-            cols="30"
-            rows="10"
-            onChange={({ target }) => setMessage(target.value)}
-          ></textarea>
-        </div>
-        <button>enviar</button>
-      </form>
-
-      <code
-        className={'animeRight'}
-        style={{ counterReset: 'line', color: '#4D5BCE' }}
-      >
-        <span data-line style={{ color: '#4D5BCE' }}>
-          <span style={{ color: '#E99287' }}>const </span>
-          button<span style={{ color: '#E99287' }}> = </span>
-          document.querySelector(
-          <span style={{ color: '#FEA55F' }}>'#sendBtn'</span>);
-        </span>
-        <span data-line>
-          <span style={{ color: '#E99287' }}>const </span> message
-          <span style={{ color: '#E99287' }}> = </span> &#123;
-        </span>
-        <span data-line>
-          <span> name:</span>{' '}
-          <span style={{ color: '#FEA55F' }}>"{firstName.value}"</span>,
-        </span>
-        <span data-line>
-          <span> email:</span>{' '}
-          <span style={{ color: '#FEA55F' }}>"{email.value}"</span>,
-        </span>
-        <span data-line>
-          <span> message:</span>{' '}
-          <span style={{ color: '#FEA55F' }}>"{message}"</span>,
-        </span>
-        <span data-line>
-          <span style={{ color: 'gray' }}> date: </span>
-          {}
-          <span style={{ color: '#FEA55F' }}>
-            "{date.toLocaleDateString('pt-BR', options).replace('.', '')}"
-          </span>
-        </span>
-        <span data-line>&#125;</span>
-        <span data-line> </span>
-        <span data-line>
-          button.addEventListener('
-          <span style={{ color: '#FEA55F' }}>'click'</span>'), ()
-          <span style={{ color: '#E99287' }}> =&#62;</span> &#123;
-        </span>
-        <span data-line> form.send(message);</span>
-        <span data-line>&#125;)</span>
-      </code>
+      <div className={styles.container}>
+        {msgSent ? (
+          <FormSent setMsgSent={setMsgSent} />
+        ) : (
+          <form onSubmit={handleSubmit} className="animeLeft">
+            <Input
+              label={'_nome:'}
+              type="text"
+              name="name"
+              {...firstName}
+            ></Input>
+            <Input
+              label={'_email:'}
+              type="text"
+              name="email"
+              {...email}
+            ></Input>
+            <div>
+              <label htmlFor="message">_mensagem:</label>
+              <textarea
+                name="message"
+                id="message"
+                cols="30"
+                rows="10"
+                onChange={({ target }) => setMessage(target.value)}
+              ></textarea>
+            </div>
+            {loading ? (
+              <button disabled>Enviando...</button>
+            ) : (
+              <button>Enviar</button>
+            )}
+          </form>
+        )}
+        <CodeBlock
+          email={email}
+          firstName={firstName}
+          message={message}
+        ></CodeBlock>
+      </div>
     </>
   );
 };

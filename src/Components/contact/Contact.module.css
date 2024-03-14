@@ -1,6 +1,7 @@
 .container {
   grid-column: 3 / -1;
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -11,7 +12,6 @@ form {
   flex-direction: column;
   align-items: start;
   color: white;
-  grid-column: 3/8;
   margin: 0 auto;
 }
 
@@ -42,19 +42,6 @@ form label {
   margin-top: 2rem;
 }
 
-code::after {
-  content: '';
-  display: block;
-  width: 1px;
-  height: 650px;
-  background: #1e2d3d;
-  position: absolute;
-  bottom: -90%;
-  left: -15%;
-  border-radius: 0.2rem;
-
-}
-
 form button {
   background: rgba(28, 43, 58, 1);
   border-radius: 0.5rem;
@@ -74,24 +61,33 @@ form button:hover {
   background: #fea55f;
 }
 
-code > [data-line]:before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  width: 1rem;
-  margin-right: 2rem;
-  text-align: right;
-  color: gray;
-}
-
-code {
-  display: grid;
-  grid-column: 8/12;
-}
-
 .aside {
   color: white;
-  height: 71vh;
+  height: 100%;
   border-right: 1px solid #1e2d3d;
   grid-column: 1/3;
+  word-break: break-all;
+}
+
+@media (max-width: 1250px) {
+  code {
+    display: none;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  form {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .container {
+    grid-column: 1/-1;
+  }
+
+  .aside {
+    grid-column: 1/-1;
+  }
 }
