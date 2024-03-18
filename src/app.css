@@ -47,7 +47,6 @@ img {
   grid-template-columns: repeat(12, 1fr);
   align-items: center;
 }
-
 .animeLeft {
   opacity: 0;
   transform: translateX(-20px);
@@ -77,9 +76,9 @@ img {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0;
+  width: 100%;
+  transition: border-bottom 0.5s ease;
   border-bottom: solid 3px #fea55f;
-  animation: border_anim linear forwards;
 }
 
 @keyframes border_anim {

@@ -64,14 +64,18 @@
   color: #ffff;
 }
 
-.nav li:hover::before {
+.nav li::before {
   content: '';
   position: absolute;
   left: 0;
   bottom: 0;
+  transition: width 0.5s;
   width: 0;
   border-bottom: solid 3px #fea55f;
-  animation: border_anim 0.5s linear forwards;
+}
+
+.nav li:hover::before {
+  width: 100%;
 }
 
 .menu svg {
@@ -128,5 +132,23 @@
   }
   100% {
     width: 100%;
+  }
+}
+
+@keyframes border_anim_out {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
   }
 }

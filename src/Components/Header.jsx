@@ -19,7 +19,9 @@ const Header = () => {
         className={`animeTop ${isOpen ? styles.openMenu : ''} ${styles.navUl}`}
       >
         <li>
-          <NavLink to="/">_home</NavLink>
+          <NavLink to="/" end>
+            _home
+          </NavLink>
         </li>
         <li>
           <NavLink to="/about">_sobre</NavLink>

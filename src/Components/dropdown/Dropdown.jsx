@@ -19,7 +19,7 @@ const Dropdown = ({ data, text, custom, children, ...props }) => {
       <ul
         className={`${active ? styles.showMenu : styles.hideMenu} ${
           styles.menu
-        }`}
+        } animeLeft`}
       >
         {data
           ? custom
@@ -39,7 +39,7 @@ const Dropdown = ({ data, text, custom, children, ...props }) => {
                   </div>
                 </li>
               ))
-          : null}
+          : children}
       </ul>
     </div>
   );
