@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './AboutResume.module.css'
 import CodeBlock from '../contact/CodeBlock';
+import AboutCV from './AboutCV';
+import Skills from '../skills/Skills';
 
 const AboutResume = () => {
   return (
-    <CodeBlock color={'#bdbdbd'}>
+    <div className={styles.container}>
+        <CodeBlock color={'#bdbdbd'}>
             <span data-line>/**</span>
       <span data-line> * Sobre mim</span>
       <span data-line> * Sou um profissional experiente em desenvolvimento Frontend, com
@@ -35,6 +38,11 @@ const AboutResume = () => {
       <span data-line> */ </span>
 
     </CodeBlock>
+    <div className={styles.rightAside}>
+    <AboutCV/>
+    <Skills></Skills>
+    </div>
+    </div>
   );
 };
 

@@ -81,6 +81,21 @@ img {
   border-bottom: solid 3px #fea55f;
 }
 
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #607b96;
+  border-radius: 0.5rem;
+  
+}
+
 @keyframes border_anim {
   0% {
     width: 0%;

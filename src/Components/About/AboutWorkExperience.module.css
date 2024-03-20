@@ -3,6 +3,22 @@
   grid-template-columns: 1fr;
   grid-column: 3 / -1;
   height: 69.4vh;
-  overflow-x: hidden;
-  overflow-y: auto; /* Add vertical scrollbar */
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.functionsList {
+  margin-left: 60px !important;
+  color: #fea55f;
+}
+
+.itemName {
+  color: #4d5bce !important;
+}
+
+.itemNameValue {
+  color: #fea55f;
+}
+
+.container {
 }
