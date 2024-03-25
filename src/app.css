@@ -10,6 +10,7 @@
 body {
   margin: 0px;
   background-color: #01080e;
+  overflow-x: hidden;
 }
 
 h1,
@@ -93,7 +94,6 @@ img {
 *::-webkit-scrollbar-thumb {
   background-color: #607b96;
   border-radius: 0.5rem;
-  
 }
 
 @keyframes border_anim {

@@ -10,6 +10,7 @@ import { FORM_POST } from '../../api';
 import CodeBlock from './CodeBlock';
 import FormSent from './FormSent';
 import { useState } from 'react';
+import Aside from '../helper/Aside';
 
 const opts = [
   {
@@ -47,15 +48,15 @@ const Contact = () => {
     const { response } = await request(url, options);
     if (response.ok) {
       setMsgSent(true);
-      firstName(null);
     }
   }
 
   return (
     <>
-      <aside className={styles.aside}>
+      <Aside>
         <Dropdown data={opts} custom={false} text={'contatos'}></Dropdown>
-      </aside>
+      </Aside>
+
       <div className={styles.container}>
         {msgSent ? (
           <FormSent setMsgSent={setMsgSent} />
@@ -100,7 +101,7 @@ const Contact = () => {
           </span>
           <span data-line>
             <span style={{ color: '#E99287' }}>const </span> message
-            <span style={{ color: '#E99287' }}> = </span> &#123; 
+            <span style={{ color: '#E99287' }}> = </span> &#123;
           </span>
           <span data-line>
             <span> name:</span>{' '}

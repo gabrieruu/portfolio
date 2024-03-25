@@ -1,0 +1,47 @@
+.container {
+  border: 1px solid;
+  border-radius: 0.5rem;
+  height: 320px;
+  max-width: 350px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.description {
+  padding: 0.5rem;
+  padding-top: 0px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.img h2 {
+  position: relative;
+  text-align: center;
+  top: 45%;
+  opacity: 1;
+  z-index: 200;
+  height: 0px;
+  transition: all 0.5s ease;
+}
+
+.img {
+  overflow: hidden;
+  height: 65%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.container:hover img {
+  filter: none;
+}
+
+.container:hover h2 {
+  opacity: 0;
+}
+
+.img img {
+  filter: blur(5px);
+  transition: all 0.5s ease;
+}

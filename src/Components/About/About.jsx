@@ -8,6 +8,7 @@ import AboutWorkExperience from './AboutWorkExperience';
 import JavaScript from '../../assets/JavaScriptIcon';
 import useMedia from '../../Hooks/useMedia';
 import AboutCV from './AboutCV';
+import Aside from '../helper/Aside';
 
 const About = () => {
   const mobile = useMedia('(max-width: 1300px)');
@@ -18,7 +19,7 @@ const About = () => {
         <AboutCV style={{ gridColumn: '1 / -1' }} />
       ) : (
         <>
-          <aside className={styles.aside}>
+          <Aside>
             <Dropdown custom={true} text={'Informações'}>
               <li>
                 <JavaScript />
@@ -35,7 +36,7 @@ const About = () => {
                 <NavLink to="education">educacao.js</NavLink>
               </li>
             </Dropdown>
-          </aside>
+          </Aside>
           <div className={styles.container}>
             <Routes>
               <Route path="/" element={<AboutResume />} />

@@ -1,0 +1,63 @@
+.projectLabels {
+  cursor: pointer;
+  color: #607b96;
+  transition: 0.5s ease;
+}
+
+.projectLabels svg {
+  transition: none !important;
+}
+
+.projectLabels:hover {
+  color: white;
+  fill: white;
+}
+
+.projectLabels input {
+  display: none;
+}
+
+.projectLabels svg {
+  margin-right: 10px;
+  margin-left: 8px;
+}
+
+.projectLabels:hover {
+  background-color: #fea55f;
+}
+
+.container {
+  color: white;
+  grid-column: 3 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 20px;
+  height: 100%;
+  padding: 1rem;
+}
+
+@media (max-width: 1850px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1050px) {
+  .container {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
