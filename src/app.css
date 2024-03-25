@@ -43,7 +43,6 @@ img {
 .appMain {
   min-height: 71vh;
   background-color: #011627;
-  backdrop-filter: blur(25px);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: center;

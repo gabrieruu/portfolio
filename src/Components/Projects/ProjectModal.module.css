@@ -2,8 +2,8 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  top: -22%;
-  left: -4.5%;
+  top: 0;
+  left: 0;
   backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.4);
   z-index: 1000;
@@ -13,22 +13,5 @@
 @media (max-width: 40rem) {
   .modal {
     padding: 2rem calc(2rem + 15px) 2rem 2rem;
-  }
-}
-
-@media (max-width: 1600px) {
-  .modal {
-    top: -15%;
-    left: 0;
-  }
-  body:has(.modal) {
-    /* overflow: hidden; */
-  }
-}
-
-@media (max-width: 1130px) {
-  .modal {
-    top: unset;
-    left: unset;
   }
 }

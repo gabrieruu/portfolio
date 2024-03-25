@@ -20,7 +20,9 @@ const ProjectDetail = ({ data }) => {
         <p>Tecnologias : </p>
         <ul>
           {data.tags.map((tag, index) => (
-            <li key={index}>{tag}</li>
+            <li key={index}>
+              <p>{tag}</p>
+            </li>
           ))}
         </ul>
       </div>
