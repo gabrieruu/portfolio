@@ -11,6 +11,7 @@ import CodeBlock from './CodeBlock';
 import FormSent from './FormSent';
 import { useState } from 'react';
 import Aside from '../helper/Aside';
+import Head from '../helper/Head';
 
 const opts = [
   {
@@ -53,6 +54,10 @@ const Contact = () => {
 
   return (
     <>
+      <Head
+        title="Contato"
+        description="Contato do portfolio, com informações dos meus contatos"
+      />
       <Aside>
         <Dropdown data={opts} custom={false} text={'contatos'}></Dropdown>
       </Aside>

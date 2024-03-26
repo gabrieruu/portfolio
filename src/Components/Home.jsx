@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './Home.module.css';
 import Skills from './skills/Skills';
+import Head from './helper/Head';
 
 const Home = () => {
   return (
     <section className={styles.container}>
+      <Head
+        title="Home"
+        description="Home do portfolio, com dados sobre skills de programação"
+      />
       <div className={`${styles.tittle} animeLeft`}>
         <div>
           <h1>Gabriel Majeski</h1>

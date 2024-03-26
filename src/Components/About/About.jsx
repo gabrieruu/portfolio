@@ -9,12 +9,17 @@ import JavaScript from '../../assets/JavaScriptIcon';
 import useMedia from '../../Hooks/useMedia';
 import AboutCV from './AboutCV';
 import Aside from '../helper/Aside';
+import Head from '../helper/Head';
 
 const About = () => {
   const mobile = useMedia('(max-width: 1300px)');
 
   return (
     <>
+      <Head
+        title="Sobre"
+        description="Sobre do portfolio, com dados sobre skills e meus curriculo"
+      />
       {mobile ? (
         <AboutCV style={{ gridColumn: '1 / -1' }} />
       ) : (
@@ -35,7 +40,7 @@ const About = () => {
                 <JavaScript />
                 <NavLink to="education">educacao.js</NavLink>
               </li>
-            </Dropdown> 
+            </Dropdown>
           </Aside>
           <div className={styles.container}>
             <Routes>

@@ -7,7 +7,12 @@ import Html5 from '../../assets/Html5';
 import TerminalIcon from '../../assets/TerminalIcon';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
-import zozo from '../../assets/cover1.jpg';
+import dogsHome from '../../assets/homeDogs.png';
+import pokedexHome from '../../assets/homePokedex.png';
+import santaIdeiaHome from '../../assets/homeSantaIdeia.png';
+import bikcraftHome from '../../assets/homeBikcraft.png';
+
+import Head from '../helper/Head';
 
 const projectsData = [
   {
@@ -16,7 +21,7 @@ const projectsData = [
     name: 'Dogs',
     tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
-      src: zozo,
+      src: dogsHome,
       alt: 'Imagem padrão',
     },
     description:
@@ -30,7 +35,7 @@ const projectsData = [
     name: 'Pokedex',
     tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
-      src: zozo,
+      src: pokedexHome,
       alt: 'Imagem padrão',
     },
     description:
@@ -44,7 +49,7 @@ const projectsData = [
     name: 'Santa Ideia',
     tags: ['HTML', 'CSS', 'JS'],
     img: {
-      src: zozo,
+      src: santaIdeiaHome,
       alt: 'Imagem padrão',
     },
     description:
@@ -58,7 +63,7 @@ const projectsData = [
     name: 'BikCraft',
     tags: ['HTML', 'CSS', 'JS'],
     img: {
-      src: zozo,
+      src: bikcraftHome,
       alt: 'Imagem padrão',
     },
     description:
@@ -92,6 +97,10 @@ const Projects = () => {
 
   return (
     <>
+      <Head
+        title="Projetos"
+        description="Projetos do portfolio, com informações dos meus projetos."
+      />
       <Aside>
         <Dropdown text={'Projetos'}>
           {filtersValue.map((filters) => (
