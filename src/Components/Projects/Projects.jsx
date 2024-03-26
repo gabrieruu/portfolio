@@ -21,7 +21,7 @@ const projectsData = [
     name: 'Dogs',
     tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
-      src: dogsHome,
+      src: 'https://gabrielmajeski-portfolio.s3.amazonaws.com/homeDogs.png',
       alt: 'Imagem padrão',
     },
     description:
@@ -35,7 +35,7 @@ const projectsData = [
     name: 'Pokedex',
     tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
-      src: pokedexHome,
+      src: 'https://gabrielmajeski-portfolio.s3.amazonaws.com/homePokedex.png',
       alt: 'Imagem padrão',
     },
     description:
@@ -49,7 +49,7 @@ const projectsData = [
     name: 'Santa Ideia',
     tags: ['HTML', 'CSS', 'JS'],
     img: {
-      src: santaIdeiaHome,
+      src: '',
       alt: 'Imagem padrão',
     },
     description:
@@ -63,7 +63,7 @@ const projectsData = [
     name: 'BikCraft',
     tags: ['HTML', 'CSS', 'JS'],
     img: {
-      src: bikcraftHome,
+      src: 'https://gabrielmajeski-portfolio.s3.amazonaws.com/homeBikcraft.png',
       alt: 'Imagem padrão',
     },
     description:
