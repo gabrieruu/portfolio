@@ -11,7 +11,7 @@
 }
 
 .container img {
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
   width: 100%;
   height: auto;
 }
@@ -45,6 +45,11 @@
   padding: 0.5rem;
 }
 
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+}
+
 .button {
   background: rgba(28, 43, 58, 1);
   border-radius: 0.5rem;
@@ -56,6 +61,21 @@
   letter-spacing: 0em;
   cursor: pointer;
   transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+
+.button p {
+  margin-left: 5px;
+}
+
+.buttonContainer a {
+  text-decoration: none;
+}
+
+.button svg {
+  width: 20px;
+  transition: none !important;
 }
 
 .button:hover {

@@ -35,7 +35,7 @@ const About = () => {
                 <JavaScript />
                 <NavLink to="education">educacao.js</NavLink>
               </li>
-            </Dropdown>
+            </Dropdown> 
           </Aside>
           <div className={styles.container}>
             <Routes>

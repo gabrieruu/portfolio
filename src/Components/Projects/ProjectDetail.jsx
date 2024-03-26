@@ -1,13 +1,9 @@
 import React from 'react';
 import styles from './ProjectDetail.module.css';
-import { useNavigate } from 'react-router-dom';
+import GitIcon from '../../assets/GitIcon';
+import EyeIcon from '../../assets/EyeIcon';
 
 const ProjectDetail = ({ data }) => {
-  const navigate = useNavigate();
-
-  function handlerOnClick() {
-    navigate(data.link);
-  }
   return (
     <div className={`${styles.container} animeDown`}>
       <div className={styles.img}>
@@ -30,9 +26,12 @@ const ProjectDetail = ({ data }) => {
         <p>{data.description}</p>
       </div>
       <div className={styles.buttonContainer}>
-        <button onClick={handlerOnClick} className={styles.button}>
-          Detalhes
-        </button>
+        <a href={data.gitHubLink} target="_blank" className={styles.button}>
+          <GitIcon /> <p>GitHub</p>
+        </a>
+        <a href={data.preview} target="_blank" className={styles.button}>
+          <EyeIcon /> <p>Preview</p>
+        </a>
       </div>
     </div>
   );

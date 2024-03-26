@@ -12,59 +12,59 @@ import zozo from '../../assets/cover1.jpg';
 const projectsData = [
   {
     id: 1,
-    type: 'html',
-    name: 'Pokedex',
-    tags: ['HTML', 'CSS Modules', 'REACT', 'JS'],
+    type: 'react',
+    name: 'Dogs',
+    tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
       src: zozo,
       alt: 'Imagem padrão',
     },
     description:
-      'Loremasdasasdasdasdasdasdasd ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum ex arcu, sit amet condimentum risus condimentum a. Vestibulum hendrerit ex nibh.',
-    gitHubLink: '',
-    link: '/projects/pokedex',
+      'Aplicativo semelhante ao Instagram feito utilizando ReactJS, Custom Hooks, Hooks e JWT, a aplicação conta com um sistema de cadastro, login e mudança de senha funcional, é possível também postar fotos, comentar fotos e ver estatisticas referentes as fotos (Quantidade de visualizações).',
+    gitHubLink: 'https://github.com/gabrielmajeski/dogs',
+    preview: 'https://gabrielmajeski.github.io/dogs/',
   },
   {
     id: 2,
     type: 'react',
-    name: 'suco2',
-    tags: ['HTML', 'CSS Modules', 'REACT', 'JS'],
+    name: 'Pokedex',
+    tags: ['ReactJS', 'CSS Modules', 'Custom Hooks'],
     img: {
       src: zozo,
       alt: 'Imagem padrão',
     },
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum ex arcu, sit amet condimentum risus condimentum a. Vestibulum hendrerit ex nibh.',
-    gitHubLink: '',
-    link: '',
+      'Pokédex responsiva feita com ReactJS, Hooks, consumindo o PokeApi e usando LocalStorage.',
+    gitHubLink: 'https://github.com/gabrielmajeski/pokedex',
+    preview: 'https://gabrielmajeski.github.io/pokedex/',
   },
   {
     id: 3,
-    type: 'react',
-    name: 'suco3',
-    tags: ['HTML', 'CSS Modules', 'REACT', 'JS'],
+    type: 'html',
+    name: 'Santa Ideia',
+    tags: ['HTML', 'CSS', 'JS'],
     img: {
       src: zozo,
       alt: 'Imagem padrão',
     },
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum ex arcu, sit amet condimentum risus condimentum a. Vestibulum hendrerit ex nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum ex arcu, sit amet condimentum risus condimentum a. Vestibulum hendrerit ex nibh.',
-    gitHubLink: '',
-    link: '',
+      'Site feito para expor os projetos de arquitetura da empresa @santaideia.arq, o mesmo foi feito utilizando HTML, CSS e JS para alguns efeitos e transições que existem no site.',
+    gitHubLink: 'https://github.com/gabrielmajeski/santaideia',
+    preview: 'https://gabrielmajeski.github.io/santaideia/',
   },
   {
     id: 4,
     type: 'html',
-    name: 'suco4',
-    tags: ['HTML', 'CSS Modules', 'REACT', 'JS'],
+    name: 'BikCraft',
+    tags: ['HTML', 'CSS', 'JS'],
     img: {
       src: zozo,
       alt: 'Imagem padrão',
     },
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum ex arcu, sit amet condimentum risus condimentum a. Vestibulum hendrerit ex nibh.',
-    gitHubLink: '',
-    link: '',
+      'Meu primeiro site que foi colocado no GitHub, o mesmo foi feito seguindo o curso de Web Designe completo da Origamid.',
+    gitHubLink: 'https://github.com/gabrielmajeski/bikcraft',
+    preview: 'https://gabrielmajeski.github.io/bikcraft/',
   },
 ];
 

@@ -36,7 +36,7 @@ const Skills = () => {
       duration: 5,
     },
     {
-      name: 'Mongo',
+      name: 'MongoDB',
       level: 30,
       color: '#FEA55F',
       duration: 5,

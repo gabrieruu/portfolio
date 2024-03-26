@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProjectModal.module.css';
 import ProjectDetail from './ProjectDetail';
 
-const ProjectModal = ({ projects, modalProject, setModalProject }) => {
+const ProjectModal = ({ modalProject, setModalProject }) => {
   function handleOutsideClick(event) {
     if (event.target === event.currentTarget) setModalProject(null);
   }
