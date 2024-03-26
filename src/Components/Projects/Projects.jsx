@@ -7,10 +7,6 @@ import Html5 from '../../assets/Html5';
 import TerminalIcon from '../../assets/TerminalIcon';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
-import dogsHome from '../../assets/homeDogs.png';
-import pokedexHome from '../../assets/homePokedex.png';
-import santaIdeiaHome from '../../assets/homeSantaIdeia.png';
-import bikcraftHome from '../../assets/homeBikcraft.png';
 
 import Head from '../helper/Head';
 
@@ -49,7 +45,7 @@ const projectsData = [
     name: 'Santa Ideia',
     tags: ['HTML', 'CSS', 'JS'],
     img: {
-      src: '',
+      src: 'https://gabrielmajeski-portfolio.s3.amazonaws.com/homeSantaIdeia.png',
       alt: 'Imagem padrão',
     },
     description:

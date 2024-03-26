@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import HamburgerMenu from '../../src/assets/HamburgerMenu';
-import CloseButton from '../../src/assets/CloseButton';
+import HamburgerMenu from '../assets/HamburgerMenu';
+import CloseButton from '../assets/CloseButton';
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
