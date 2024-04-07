@@ -9,12 +9,23 @@ on:
       - main
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
+      - name: Super-linter
+        uses: super-linter/super-linter@v6.3.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPERLINTER_GITHUB_TOKEN }}
+
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - name: Build
         run: |
           docker build -t gabrielmajeski/portfolio .
