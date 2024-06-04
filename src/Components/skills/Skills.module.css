@@ -8,18 +8,18 @@
   );
   padding: 0.5rem 1rem 1rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid rgb(12 22 22 / 1);
+  border: 1px solid rgb(12 22 22 );
 }
 
 .container > div > div h5 {
-  color: rgb(1 12 21 / 1) !important;
+  color: rgb(1 12 21 ) !important;
   box-shadow: none !important;
   font-weight: 500 !important;
   font-size: 1rem;
 }
 
 .container > div > div span {
-  color: rgb(1 12 21 / 1) !important;
+  color: rgb(1 12 21 ) !important;
   box-shadow: none !important;
   font-weight: 500 !important;
   font-size: 1rem;
