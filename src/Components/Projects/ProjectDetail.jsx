@@ -5,7 +5,7 @@ import EyeIcon from '../../assets/EyeIcon';
 
 const ProjectDetail = ({ data }) => {
   return (
-    <div className={`${styles.container} animeDown`}>
+    <div className={`${styles.container} anime-down`}>
       <div className={styles.img}>
         <img src={data.img.src} alt={data.img.alt} />
       </div>
@@ -25,7 +25,7 @@ const ProjectDetail = ({ data }) => {
       <div className={styles.description}>
         <p>{data.description}</p>
       </div>
-      <div className={styles.buttonContainer}>
+      <div className={styles.button-container}>
         <a href={data.gitHubLink} target="_blank" className={styles.button}>
           <GitIcon /> <p>GitHub</p>
         </a>

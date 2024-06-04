@@ -100,7 +100,7 @@ const Projects = () => {
       <Aside>
         <Dropdown text={'Projetos'}>
           {filtersValue.map((filters) => (
-            <label className={styles.projectLabels} key={filters.filter}>
+            <label className={styles.project-labels} key={filters.filter}>
               <input
                 type="checkbox"
                 value={filters.filter}
@@ -119,7 +119,7 @@ const Projects = () => {
           setModalProject={setModalProject}
         />
       )}
-      <div className={`${styles.container} animeRight`}>
+      <div className={`${styles.container} anime-right`}>
         {projects &&
           projects.map((p, index) => (
             <ProjectCard

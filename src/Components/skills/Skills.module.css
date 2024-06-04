@@ -3,10 +3,10 @@
   min-width: 30vw;
   background: linear-gradient(
     150.26deg,
-    rgb(23 85 83 / 0.7) 1.7%,
-    rgb(67 217 173 / 0.091) 81.82%
+    rgb(23 85 83 / 70%) 1.7%,
+    rgb(67 217 173 / 9.1%) 81.82%
   );
-  padding: 0.5rem 1rem 1rem 1rem;
+  padding: 0.5rem 1rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid rgb(12 22 22 );
 }
@@ -34,7 +34,7 @@
   font-size: 2rem;
 }
 
-@media (max-width: 1250px) {
+@media (max-width <= 1250px) {
   .container {
     margin-top: 2rem;
     margin-bottom: 2rem;
