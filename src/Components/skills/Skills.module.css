@@ -8,18 +8,18 @@
   );
   padding: 0.5rem 1rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid rgb(12 22 22 );
+  border: 1px solid rgb(12 22 22);
 }
 
 .container > div > div h5 {
-  color: rgb(1 12 21 ) !important;
+  color: rgb(1 12 21) !important;
   box-shadow: none !important;
   font-weight: 500 !important;
   font-size: 1rem;
 }
 
 .container > div > div span {
-  color: rgb(1 12 21 ) !important;
+  color: rgb(1 12 21) !important;
   box-shadow: none !important;
   font-weight: 500 !important;
   font-size: 1rem;
@@ -34,7 +34,7 @@
   font-size: 2rem;
 }
 
-@media (max-width = 1250px) {
+@media (width <= 1250px) {
   .container {
     margin-top: 2rem;
     margin-bottom: 2rem;
