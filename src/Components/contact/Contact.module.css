@@ -60,7 +60,7 @@ form button:hover {
   background: #fea55f;
 }
 
-@media (max-width <= 1250px) {
+@media (width <= 1250px) {
   code {
     display: none;
   }
@@ -74,7 +74,7 @@ form button:hover {
   }
 }
 
-@media (max-width <= 1050px) {
+@media (width <= 1050px) {
   .container {
     grid-column: 1/-1;
   }

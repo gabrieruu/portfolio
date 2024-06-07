@@ -86,7 +86,7 @@
   background: #fea55f;
 }
 
-@media (max-width <= 1130px) {
+@media (width <= 1130px) {
   .container {
     width: auto;
   }

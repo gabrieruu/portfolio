@@ -47,7 +47,7 @@
   fill: white;
 }
 
-@media (max-width <= 1050px) {
+@media (width <= 1050px) {
   .aside {
     grid-column: 1/-1;
   }

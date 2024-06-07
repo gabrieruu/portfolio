@@ -13,7 +13,7 @@
   overflow-x: auto;
 }
 
-@media (max-width <= 1250px) {
+@media (width <= 1250px) {
   .code {
     display: none;
   }
