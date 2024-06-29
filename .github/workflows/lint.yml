@@ -34,6 +34,9 @@ jobs:
         uses: super-linter/super-linter@v6.6.0
         env:
           GITHUB_TOKEN: ${{ secrets.SUPERLINTER_GITHUB_TOKEN }}
+          LINTER_RULES_PATH: .github/linters
+          CSS_FILE_NAME: .stylelintrc.json
+          VALIDATE_JSCPD: false
 
 
   # build:
