@@ -1,5 +1,8 @@
 name: Main Branch CI/CD Pipeline
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
