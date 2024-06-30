@@ -1,17 +1,26 @@
-name: Build and Push Image to Docker Hub
+name: Build and Push
+
+permissions:
+  contents: read
 
 on:
-    push:
-      branches:
-        - main
-    pull_request:
-      branches:
-        - main
+    workflow_run:
+        workflows: "Lint"
+        branches:
+            - main
+        types:
+            - completed
 
 jobs:
   docker:
-    name: Build and Push
+    name: docker/build-push
     runs-on: ubuntu-latest
+
+    permissions:
+        contents: read
+        packages: read
+        statuses: write
+
     steps:
       -
         name: Set up QEMU
