@@ -12,8 +12,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: Lint
+  super-linter:
+    name: super-linter/superlinter
     runs-on: ubuntu-latest
 
     permissions:
