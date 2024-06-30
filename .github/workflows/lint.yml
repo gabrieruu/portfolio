@@ -1,0 +1,47 @@
+name: Lint
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      # To report GitHub Actions status checks
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
+
+      - name: Super-linter
+        uses: super-linter/super-linter@v6.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.SUPERLINTER_GITHUB_TOKEN }}
+          LINTER_RULES_PATH: .github/linters
+          CSS_FILE_NAME: .stylelintrc.json
+          VALIDATE_JSCPD: false
+
+
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Build
+  #       run: |
+  #         docker build -t gabrielmajeski/portfolio .

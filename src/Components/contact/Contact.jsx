@@ -66,7 +66,7 @@ const Contact = () => {
         {msgSent ? (
           <FormSent setMsgSent={setMsgSent} />
         ) : (
-          <form onSubmit={handleSubmit} className="animeLeft">
+          <form onSubmit={handleSubmit} className="anime-left">
             <Input
               label={'_nome:'}
               type="text"
@@ -90,9 +90,9 @@ const Contact = () => {
               ></textarea>
             </div>
             {loading ? (
-              <button disabled>Enviando...</button>
+              <button disabled={true}>Enviando...</button>
             ) : (
-              <button>Enviar</button>
+              <button disabled={false}>Enviar</button>
             )}
           </form>
         )}
