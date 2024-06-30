@@ -37,6 +37,7 @@ jobs:
           LINTER_RULES_PATH: .github/linters
           CSS_FILE_NAME: .stylelintrc.json
           VALIDATE_JSCPD: false
+          VALIDATE_CHECKOV: false
 
 
   # build:

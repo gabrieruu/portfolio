@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProjectDetail.module.css';
-import GitIcon from '../../assets/GitIcon';
-import EyeIcon from '../../assets/EyeIcon';
+import GitIcon from '../../Assets/GitIcon';
+import EyeIcon from '../../Assets/EyeIcon';
 
 const ProjectDetail = ({ data }) => {
   return (

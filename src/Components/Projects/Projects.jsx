@@ -2,9 +2,9 @@ import React from 'react';
 import Aside from '../helper/Aside';
 import Dropdown from '../dropdown/Dropdown';
 import styles from './Projects.module.css';
-import ReactJS from '../../assets/ReactJS';
-import Html5 from '../../assets/Html5';
-import TerminalIcon from '../../assets/TerminalIcon';
+import ReactJS from '../../Assets/ReactJS';
+import Html5 from '../../Assets/Html5';
+import TerminalIcon from '../../Assets/TerminalIcon';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
 

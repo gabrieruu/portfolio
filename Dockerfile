@@ -1,21 +1,15 @@
 # Use a specific node image
 FROM node:18
 
-# Set a non-root user
-USER node
-
 # Set the working directory
 WORKDIR /app
 
-# Install dependencies
-RUN npm install vite@0.20.2
+# Copy package.json and package-lock.json first
+COPY package*.json ./
 
-# Copy package files
-COPY package.json ./
-COPY package-lock.json ./
-
-# Install npm packages
-RUN npm install
+# Clear npm cache and install dependencies
+RUN npm cache clean --force && \
+	npm install
 
 # Copy application code
 COPY . .

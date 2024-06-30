@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Dropdown.module.css';
-import PageUp from '../../assets/PageUp';
+import PageUp from '../../Assets/PageUp';
 import { NavLink } from 'react-router-dom';
 
 const Dropdown = ({ data, text, custom, children, ...props }) => {
