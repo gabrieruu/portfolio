@@ -13,7 +13,7 @@ const ProjectDetail = ({ data }) => {
         <h2>{data.name}</h2>
       </div>
       <div className={styles.tags}>
-        <p>Tecnologias : </p>
+        <p>Tecnologias: </p>
         <ul>
           {data.tags.map((tag, index) => (
             <li key={index}>
@@ -25,7 +25,7 @@ const ProjectDetail = ({ data }) => {
       <div className={styles.description}>
         <p>{data.description}</p>
       </div>
-      <div className={styles.button-container}>
+      <div className={styles["button-container"]}>
         <a href={data.gitHubLink} target="_blank" className={styles.button}>
           <GitIcon /> <p>GitHub</p>
         </a>

@@ -28,6 +28,12 @@ const Skills = () => {
       color: '#FEA55F',
       duration: 5,
     },
+    {
+      name: 'WordPress',
+      level: 50,
+      color: '#FEA55F',
+      duration: 5,
+    },
 
     {
       name: 'Git',

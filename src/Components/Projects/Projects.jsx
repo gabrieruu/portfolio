@@ -100,7 +100,7 @@ const Projects = () => {
       <Aside>
         <Dropdown text={'Projetos'}>
           {filtersValue.map((filters) => (
-            <label className={styles.project-labels} key={filters.filter}>
+            <label className={styles["project-labels"]} key={filters.filter}>
               <input
                 type="checkbox"
                 value={filters.filter}

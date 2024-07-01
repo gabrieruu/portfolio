@@ -13,14 +13,14 @@ const Home = () => {
       <div className={`${styles.tittle} anime-left`}>
         <div>
           <h1>Gabriel Majeski</h1>
-          <p className={styles.front-title}> {'>'} Front-end Developer</p>
+          <p className={styles["front-title"]}> {'>'} Front-end Developer</p>
         </div>
         <div>
           <p>// Você pode visitar minha página no GitHub</p>
           <p>
             <span>const</span> <span>githubLink</span> ={' '}
             <a
-              className={styles.git-link}
+              className={styles["git-link"]}
               href="https://github.com/gabrielmajeski"
               target="_blank"
             >

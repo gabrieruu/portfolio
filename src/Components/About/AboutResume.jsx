@@ -38,7 +38,7 @@ const AboutResume = () => {
       <span data-line> */ </span>
 
     </CodeBlock>
-    <div className={styles.right-aside}>
+    <div className={styles["right-aside"]}>
     <AboutCV/>
     <Skills></Skills>
     </div>

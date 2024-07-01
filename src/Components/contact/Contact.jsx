@@ -16,7 +16,7 @@ import Head from '../helper/Head';
 const opts = [
   {
     text: '(51) 98914-0371',
-    link: 'https://api.whatsapp.com/send?phone=5551598914037',
+    link: 'https://api.whatsapp.com/send?phone=55515989140371',
     icon: <WhatsIcon />,
   },
   {
@@ -92,7 +92,7 @@ const Contact = () => {
             {loading ? (
               <button disabled={true}>Enviando...</button>
             ) : (
-              <button disabled={false}>Enviar</button>
+              <button  disabled={false}>Enviar</button>
             )}
           </form>
         )}
