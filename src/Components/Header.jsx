@@ -16,7 +16,7 @@ const Header = () => {
       </div>
       <ul
         onClick={() => setIsOpen(false)}
-        className={`anime-top ${isOpen ? styles.open-menu : ''} ${styles.nav-ul}`}
+        className={`anime-top ${isOpen ? styles.open-menu : ''} ${styles.navul}`}
       >
         <li>
           <NavLink to="/" end>
