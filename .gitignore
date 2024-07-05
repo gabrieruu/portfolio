@@ -60,3 +60,6 @@ terraform.tfvars
 
 # Ignore .env files, often used for local environment variables
 .env
+
+# Ignore .txt files
+*.txt
