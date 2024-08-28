@@ -56,8 +56,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: sa-east-1
 
-      - run: cd $GITHUB_WORKSPACE/terraform/backend
-
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
         with: 
@@ -65,6 +63,9 @@ jobs:
 
       - name: Run backend setup script
         run: |
+          cd $GITHUB_WORKSPACE/terraform/backend
           echo $(pwd)
+          ls -a
           chmod +x backend_setup.sh
+          ls -a
           ./backend_setup.sh
