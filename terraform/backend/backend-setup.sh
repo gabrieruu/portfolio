@@ -7,12 +7,6 @@ TERRAFORM_BACKEND=$GITHUB_WORKSPACE/terraform/backend
 BUCKET_NAME="terraform-state-${ACCOUNT_ID}"
 DYNAMODB_TABLE_NAME="terraform-lock-table-${ACCOUNT_ID}"
 
-echo "echoing script variables..."
-echo $ACCOUNT_ID
-echo $TERRAFORM_BACKEND
-echo $BUCKET_NAME
-echo $DYNAMODB_TABLE_NAME
-
 if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
   echo "Backend S3 bucket does not exist. Creating..."
 

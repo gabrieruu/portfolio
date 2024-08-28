@@ -61,7 +61,6 @@ jobs:
 
       - name: Run backend setup script
         run: |
-          echo $GITHUB_WORKSPACE
           cd $GITHUB_WORKSPACE/terraform/backend
           chmod +x backend-setup.sh
           ./backend-setup.sh
