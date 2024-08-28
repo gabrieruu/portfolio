@@ -1,15 +1,15 @@
-name: Build and Push
+name: Build and Push Docker Image
 
 permissions:
   contents: read
 
 on:
-    workflow_run:
-        workflows: "Lint"
-        branches:
-            - main
-        types:
-            - completed
+  workflow_run:
+    workflows: ["Lint"]
+    branches:
+        - main
+    types:
+        - completed
 
 jobs:
   docker:
@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-        contents: read
-        packages: read
-        statuses: write
+      contents: read
+      packages: read
+      statuses: write
 
     steps:
       - name: Set up QEMU

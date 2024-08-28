@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "terraform-state-381491983236"
-    dynamodb_table = "terraform-lock-table"
-    region         = "sa-east-1"
+    bucket         = "terraform-state-${data.aws_caller_identity.current.account_id}"
+    dynamodb_table = "terraform-lock-table-${data.aws_caller_identity.current.account_id}"
+    region         = var.region
     key            = "backend.tfstate"
   }
 
@@ -14,12 +14,6 @@ terraform {
   }
 
   required_version = "~> 1.8"
-}
-
-provider "aws" {
-  access_key = var.access_key
-  secret_key = var.secret_key
-  region     = var.region
 }
 
 module "dynamodb" {

@@ -63,3 +63,6 @@ terraform.tfvars
 
 # Ignore .txt files
 *.txt
+
+# Ignore todo-cli file
+todos.json
