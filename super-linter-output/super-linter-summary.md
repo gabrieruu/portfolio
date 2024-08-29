@@ -6,6 +6,7 @@
 | CSS                 | Pass ✅           |
 | CSS_PRETTIER        | Fail ❌           |
 | DOCKERFILE_HADOLINT | Pass ✅           |
+| GITHUB_ACTIONS      | Fail ❌           |
 | GITLEAKS            | Pass ✅           |
 | HTML                | Pass ✅           |
 | HTML_PRETTIER       | Fail ❌           |
@@ -23,7 +24,7 @@
 | TERRAFORM_FMT       | Pass ✅           |
 | TERRAFORM_TFLINT    | Pass ✅           |
 | TERRAFORM_TERRASCAN | Fail ❌           |
-| YAML                | Fail ❌           |
+| YAML                | Pass ✅           |
 | YAML_PRETTIER       | Pass ✅           |
 
 Super-linter detected linting errors

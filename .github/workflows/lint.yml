@@ -69,8 +69,8 @@ name: Lint
 on:
   push:
     branches:
-      - '*'
-      - '!main'
+      - "*"
+      - "!main"
   pull_request:
     branches:
       - main
