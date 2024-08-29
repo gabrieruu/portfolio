@@ -11,7 +11,7 @@
 | HTML                | Pass ✅           |
 | HTML_PRETTIER       | Fail ❌           |
 | JAVASCRIPT_ES       | Fail ❌           |
-| JAVASCRIPT_PRETTIER | Pass ✅           |
+| JAVASCRIPT_PRETTIER | Fail ❌           |
 | JAVASCRIPT_STANDARD | Pass ✅           |
 | JSCPD               | Fail ❌           |
 | JSON                | Fail ❌           |
@@ -25,6 +25,6 @@
 | TERRAFORM_TFLINT    | Pass ✅           |
 | TERRAFORM_TERRASCAN | Fail ❌           |
 | YAML                | Pass ✅           |
-| YAML_PRETTIER       | Pass ✅           |
+| YAML_PRETTIER       | Fail ❌           |
 
 Super-linter detected linting errors
