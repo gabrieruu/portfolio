@@ -34,6 +34,7 @@ jobs:
 
   auto-fix-lint:
     if: ${{ github.event_name == 'pull_request' }}
+    environment: super-linter
     name: Auto-Fix Lint Issues
     runs-on: ubuntu-latest
 
@@ -50,7 +51,7 @@ jobs:
       - name: Auto-Fix Linting Issues
         uses: super-linter/super-linter/slim@v7.1.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_GITHUB_ACTIONS: false
           FIX_CSS: true
           FIX_JAVASCRIPT_ES: true
           FIX_JAVASCRIPT_PRETTIER: true
@@ -61,6 +62,7 @@ jobs:
           FIX_SHELL_SHFMT: true
           FIX_TERRAFORM_FMT: true
           FIX_YAML_PRETTIER: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit and Push Linting Fixes
         if: always()
@@ -69,4 +71,3 @@ jobs:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore: fix linting issues"
           commit_user_name: super-linter
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
