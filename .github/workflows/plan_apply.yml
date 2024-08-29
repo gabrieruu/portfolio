@@ -1,4 +1,4 @@
-name: Run Terraform Plan and Apply
+name: Terraform Plan and Apply
 
 on:
   push:
@@ -13,56 +13,50 @@ on:
       - terraform/**
 
 jobs:
-  lint:
-    name: Lint Codebase
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: read
-      # To report GitHub Actions status checks
-      statuses: write
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-        with:
-          # super-linter needs the full git history to get the
-          # list of files that changed across commits
-          fetch-depth: 0
-
-      - name: Run Super-linter
-        uses: super-linter/super-linter@v6.6.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.SUPERLINTER_GITHUB_TOKEN }}
-          LINTER_RULES_PATH: .github/linters
-          CSS_FILE_NAME: .stylelintrc.json
-          VALIDATE_JSCPD: false
-          VALIDATE_CHECKOV: false
-
-  setup-backend:
-    name: Setup Terraform Backend
-    #needs: lint
+  terraform-plan:
+    name: Terraform apply
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up AWS credentials
+      - name: Setup AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: sa-east-1
 
-      - name: Set up Terraform
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with: 
           terraform_wrapper: false
 
-      - name: Run backend setup script
-        run: |
-          cd $GITHUB_WORKSPACE/terraform/backend
-          chmod +x backend_setup.sh
-          ./backend_setup.sh
+      - name: Run Terraform Plan
+        run: terraform plan -chdir=$GITHUB_WORKSPACE/terraform
+
+  terraform-apply:
+    needs: terraform-plan
+
+    name: Terraform apply
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with: 
+          terraform_wrapper: false
+
+      - name: Run Terraform apply
+        run: terraform apply -chdir=$GITHUB_WORKSPACE/terraform -auto-approve
