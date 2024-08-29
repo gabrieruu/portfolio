@@ -22,7 +22,7 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with: 
+        with:
           terraform_wrapper: false
 
       - name: Run Terraform Plan
@@ -47,7 +47,7 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with: 
+        with:
           terraform_wrapper: false
 
       - name: Run Terraform apply
