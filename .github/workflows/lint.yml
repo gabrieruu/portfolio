@@ -51,7 +51,7 @@ jobs:
       - name: Auto-Fix Linting Issues
         uses: super-linter/super-linter/slim@v7.1.0
         env:
-          VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_ALL_CODEBASE: true
           FIX_CSS: true
           FIX_JAVASCRIPT_ES: true
           FIX_JAVASCRIPT_PRETTIER: true
