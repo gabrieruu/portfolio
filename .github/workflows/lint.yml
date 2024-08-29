@@ -5,11 +5,9 @@ on:
   push: null
   pull_request: null
 
-permissions:
-  contents: read
-
 jobs:
   lint-check-mode:
+    if: ${{ github.event_name == 'push' }}
     name: Lint Check
     runs-on: ubuntu-latest
 
@@ -66,4 +64,3 @@ jobs:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore: fix linting issues"
           commit_user_name: super-linter
-
