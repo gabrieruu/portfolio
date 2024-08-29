@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Lint
+  lint-check:
+    name: Lint Check
     runs-on: ubuntu-latest
 
     permissions:
@@ -26,13 +26,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Super-linter
+      - name: Run Super-linter
+        id: super-linter
         uses: super-linter/super-linter/slim@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  fix-lint-issues:
-    name: Fix Lint Issues
+      - name: Set lint result output
+        if: ${{ failure() }}
+        run: echo "::set-output name=lint_failed::true"
+      
+      - name: Set lint result output
+        if: ${{ success() }}
+        run: echo "::set-output name=lint_failed::false"
+
+  auto-fix-lint:
+    name: Auto-Fix Lint Issues
+    needs: lint-check
     runs-on: ubuntu-latest
 
     permissions:
@@ -40,24 +50,33 @@ jobs:
       statuses: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Super-Linter
+      - name: Auto-Fix Linting Issues
+        if: ${{ needs.lint-check.outputs.lint_failed == 'true' }}
         uses: super-linter/super-linter/slim@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIX_CSS: true
+          FIX_JAVASCRIPT_ES: true
+          FIX_JAVASCRIPT_PRETTIER: true
+          FIX_JAVASCRIPT_STANDARD: true
+          FIX_JSON: true
+          FIX_JSONC: true
+          FIX_JSX: true
           FIX_SHELL_SHFMT: true
+          FIX_TERRAFORM_FMT: true
           FIX_YAML_PRETTIER: true
 
-      - name: Commit and push linting fixes
-        # Run only on:
-        # - Pull requests
+      - name: Commit and Push Linting Fixes
         if: >
-          github.event_name == 'pull_request'
+          github.event_name == 'pull_request' && needs.lint-check.outputs.lint_failed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore: fix linting issues"
           commit_user_name: super-linter
+
