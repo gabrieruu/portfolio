@@ -18,10 +18,10 @@ if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
   echo "Creating main.tf for the backend..."
   cd $TERRAFORM_BACKEND
   rm config.s3.tfbackend
-  echo "bucket         = ${BUCKET_NAME}" > config.s3.tfbackend
-  echo "dynamodb_table = ${DYNAMODB_TABLE_NAME}" >> config.s3.tfbackend
-  echo "region         = ${AWS_REGION}" >> config.s3.tfbackend
-  echo "key            = ${TF_STATE_KEY}" >> config.s3.tfbackend
+  echo "bucket         = \"${BUCKET_NAME}\"" > config.s3.tfbackend
+  echo "dynamodb_table = \"${DYNAMODB_TABLE_NAME}\"" >> config.s3.tfbackend
+  echo "region         = \"${AWS_REGION}\"" >> config.s3.tfbackend
+  echo "key            = \"${TF_STATE_KEY}\"" >> config.s3.tfbackend
 else
   echo "Backend S3 bucket already exists. Continuing..."
 fi
