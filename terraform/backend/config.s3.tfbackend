@@ -1,4 +1,0 @@
-bucket         = "terraform-state-381491983236"
-dynamodb_table = "terraform-lock-table-381491983236"
-region         = "sa-east-1"
-key            = "backend.tfstatekey"

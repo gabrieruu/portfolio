@@ -1,5 +1,5 @@
 terraform {
-  backend "s3" {}
+  required_version = "~> 1.8"
 
   required_providers {
     aws = {
@@ -7,14 +7,10 @@ terraform {
       version = "~> 5.0"
     }
   }
-
-  required_version = "~> 1.8"
 }
 
-module "dynamodb" {
-  source = "./dynamodb"
+provider "aws" {
+  region = var.region
 }
 
-module "s3" {
-  source = "./s3"
-}
+data "aws_caller_identity" "current" {}
