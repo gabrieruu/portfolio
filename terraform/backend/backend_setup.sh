@@ -10,6 +10,7 @@ DYNAMODB_TABLE_NAME="terraform-lock-table-${ACCOUNT_ID}"
 if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
   echo "Backend S3 bucket does not exist. Creating..."
 
+  terraform --version
   terraform init -chdir=$TERRAFORM_BACKEND/backend-override
   terraform apply -auto-approve
 else
