@@ -40,7 +40,6 @@ jobs:
     permissions:
       contents: write
       statuses: write
-      actions: write
 
     steps:
       - name: Checkout code
@@ -70,3 +69,4 @@ jobs:
           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
           commit_message: "chore: fix linting issues"
           commit_user_name: super-linter
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
