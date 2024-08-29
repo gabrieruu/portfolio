@@ -29,3 +29,4 @@ fi
 echo "Initializing S3 backend..."
 cd $TERRAFORM_BACKEND
 terraform init -backend-config=config.s3.tfbackend -migrate-state -force-copy
+terraform apply -auto-approve
