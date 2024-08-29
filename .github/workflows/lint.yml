@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
   name: Lint
   
   on:
@@ -62,3 +63,76 @@
             branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
             commit_message: "chore: fix linting issues"
             commit_user_name: super-linter
+=======
+name: Lint
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-check-mode:
+    name: Lint Check
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Super-linter
+        id: super-linter
+        uses: super-linter/super-linter/slim@v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  auto-fix-lint:
+    if: ${{ github.event_name == 'pull_request' }}
+    name: Auto-Fix Lint Issues
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      statuses: write
+      actions: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Auto-Fix Linting Issues
+        uses: super-linter/super-linter/slim@v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIX_CSS: true
+          FIX_JAVASCRIPT_ES: true
+          FIX_JAVASCRIPT_PRETTIER: true
+          FIX_JAVASCRIPT_STANDARD: true
+          FIX_JSON: true
+          FIX_JSONC: true
+          FIX_JSX: true
+          FIX_SHELL_SHFMT: true
+          FIX_TERRAFORM_FMT: true
+          FIX_YAML_PRETTIER: true
+
+      - name: Commit and Push Linting Fixes
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
+          commit_message: "chore: fix linting issues"
+          commit_user_name: super-linter
+>>>>>>> 9f03a75 (ops: refactor workflows)
