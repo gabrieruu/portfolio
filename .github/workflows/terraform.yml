@@ -1,12 +1,17 @@
 ---
-name: Terraform Plan and Apply
+name: Terraform
 
 on:
-  workflow_dispatch:
+  push:
+    paths:
+      - "terraform/**"
+  pull_request:
+    paths:
+      - "terraform/**"
 
 jobs:
   terraform-plan:
-    name: Terraform apply
+    name: Terraform plan
     runs-on: ubuntu-latest
 
     steps:
