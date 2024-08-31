@@ -1,11 +1,15 @@
 resource "aws_s3_bucket" "media" {
   bucket = var.s3_bucket_name
-  acl    = "private"
 
   tags = {
     Name = "MediaBucketPortfolio"
     Type = "S3Bucket"
   }
+}
+
+resource "aws_s3_bucket_acl" "media_acl" {
+  bucket = aws_s3_bucket.media.id
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_policy" "media_bucket_policy" {

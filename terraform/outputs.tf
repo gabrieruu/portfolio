@@ -3,11 +3,11 @@ output "web_server_public_ip" {
 }
 
 output "s3_bucket_name" {
-  value = module.s3.bucket_name
+  value = aws_s3_bucket.media.bucket
 }
 
 output "cloudfront_distribution_domain" {
-  value = module.cloudfront.domain_name
+  value = aws_cloudfront_distribution.cdn.domain_name
 }
 
 output "route53_record_fqdn" {
