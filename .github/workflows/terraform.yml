@@ -31,7 +31,11 @@ jobs:
           terraform_wrapper: false
 
       - name: Run Terraform Plan
-        run: terraform plan -chdir=$GITHUB_WORKSPACE/terraform
+        run: |
+          cd $GITHUB_WORKSPACE/terraform
+          terraform init
+          terraform plan --var-file=terraform.tfvars
+
 
   terraform-apply:
     needs: terraform-plan
@@ -56,4 +60,7 @@ jobs:
           terraform_wrapper: false
 
       - name: Run Terraform apply
-        run: terraform apply -chdir=$GITHUB_WORKSPACE/terraform -auto-approve
+        run: |
+          cd $GITHUB_WORKSPACE/terraform
+          terraform init
+          terraform apply --auto-approve --var-file=terraform.tfvars
