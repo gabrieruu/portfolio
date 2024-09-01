@@ -1,3 +1,7 @@
+locals {
+  region_specific_suffix = "sa-east-1"
+}
+
 resource "aws_acm_certificate" "certificate" {
   domain_name       = var.domain_name
   validation_method = "DNS"
@@ -11,7 +15,7 @@ resource "aws_acm_certificate" "certificate" {
 resource "aws_route53_record" "cert_validation" {
   for_each = {
     for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
-      name   = dvo.resource_record_name
+      name   = "${dvo.resource_record_name}.${local.region_specific_suffix}"
       type   = dvo.resource_record_type
       record = dvo.resource_record_value
     }
