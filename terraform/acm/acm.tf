@@ -19,7 +19,7 @@ provider "aws" {
 }
 
 resource "aws_acm_certificate" "certificate" {
-  domain_name       = "gabrielmajeski.com.br"
+  domain_name       = var.domain_name
   validation_method = "DNS"
 
   tags = {
