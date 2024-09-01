@@ -3,7 +3,11 @@ resource "aws_lb" "web_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_sg.id]
-  subnets            = aws_subnet.public[*].id
+
+  subnets = [
+    aws_subnet.public[0].id,
+    aws_subnet.public[1].id
+  ]
 
   enable_deletion_protection = false
 

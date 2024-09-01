@@ -43,3 +43,9 @@ variable "key_name" {
 variable "allowed_ssh_ip" {
   description = "IP address allowed to SSH into the EC2 instance"
 }
+
+variable "availability_zones" {
+  description = "List of availability zones to be used for subnets"
+  type        = list(string)
+  default     = ["sa-east-1a", "sa-east-1b"]
+}
