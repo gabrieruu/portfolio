@@ -2,7 +2,7 @@
 # Update and install required packages
 yum update -y
 amazon-linux-extras install docker -y
-yum install -y nginx
+amazon-linux-extras install nginx1 -y
 
 # Start and enable Docker
 systemctl start docker

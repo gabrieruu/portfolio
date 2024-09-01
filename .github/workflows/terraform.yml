@@ -50,10 +50,11 @@ jobs:
 
 
   terraform-apply:
-    needs: terraform-plan
-
     name: Terraform apply
     runs-on: ubuntu-latest
+    needs: terraform-plan
+    environment:
+      name: terraform-apply-approval-gate
 
     steps:
       - name: Checkout code

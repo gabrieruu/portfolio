@@ -14,14 +14,18 @@ resource "aws_route53_record" "cdn_record" {
   ]
 }
 
-# resource "aws_route53_record" "webserver_record" {
-#   zone_id = var.route53_zone_id
-#   name    = var.domain_name
-#   type    = "A"
-#   ttl     = 300
-#   records = [aws_lb.web_lb.dns_name]
+resource "aws_route53_record" "webserver_record" {
+  zone_id = var.route53_zone_id
+  name    = var.domain_name
+  type    = "A"
 
-#   depends_on = [
-#     aws_instance.web
-#   ]
-# }
+  alias {
+    name                   = aws_lb.web_lb.dns_name
+    zone_id                = aws_lb.web_lb.zone_id
+    evaluate_target_health = true
+  }
+
+  depends_on = [
+    aws_instance.web
+  ]
+}
