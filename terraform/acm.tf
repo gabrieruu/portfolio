@@ -3,7 +3,7 @@ resource "aws_acm_certificate" "certificate" {
   validation_method = "DNS"
 
   tags = {
-    Name = "PortfolioSSLCertificate-sa-east-1"
+    Name = "ALBPortfolioSSLCertificate"
     Type = "ACMCertificate"
   }
 }

@@ -13,11 +13,11 @@ provider "aws" {
 }
 
 resource "aws_acm_certificate" "certificate" {
-  domain_name       = var.domain_name
+  domain_name       = "media.${var.domain_name}"
   validation_method = "DNS"
 
   tags = {
-    Name = "PortfolioSSLCertificate-us-east-1"
+    Name = "CDNMediaBucketSSLCertificate"
     Type = "ACMCertificate"
   }
 }
