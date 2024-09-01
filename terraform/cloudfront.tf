@@ -11,11 +11,6 @@ resource "aws_s3_bucket" "media" {
   }
 }
 
-resource "aws_s3_bucket_acl" "media_acl" {
-  bucket = aws_s3_bucket.media.id
-  acl    = "public-read"
-}
-
 resource "aws_s3_bucket_policy" "media_bucket_policy" {
   bucket = aws_s3_bucket.media.id
 
