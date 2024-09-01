@@ -1,5 +1,0 @@
-key_name = "PortofolioWebServerSSHKey"
-s3_bucket_name = "portfolio-media"
-domain_name = "gabrielmajeski.com.br"
-route53_zone_id = "Z066233826EBRPC72UBUG"
-allowed_ssh_ip = "45.236.135.194/32"

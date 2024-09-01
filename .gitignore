@@ -36,6 +36,9 @@ crash.log
 # Terraform plan files
 *.tfplan
 
+# Terraform .tfvars files
+*.tfvars
+
 # Lock file
 .terraform.lock.hcl
 
