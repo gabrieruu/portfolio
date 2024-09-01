@@ -114,7 +114,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   depends_on = [
     aws_s3_bucket.media,
     aws_instance.web,
-    module.acm.cert_validation
+    module.acm
   ]
 }
 
