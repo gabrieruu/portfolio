@@ -33,10 +33,10 @@ jobs:
 
       - name: Create tfvars file from secret
         run: |
-          echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
-          printf "%s" "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars2
-          cat terraform/terraform.tfvars
+          echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars2
+          printf "%s" "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
           cat terraform/terraform.tfvars2
+          cat terraform/terraform.tfvars
 
       - name: Run Terraform Plan
         run: |
