@@ -32,11 +32,15 @@ jobs:
           terraform_wrapper: false
 
       - name: Create tfvars file from secret
+        run: echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
+
+      - name: Edit tfvars file to add quotes
         run: |
-          echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars2
-          printf "%s" "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
-          cat terraform/terraform.tfvars2
-          cat terraform/terraform.tfvars
+          sed -i 's/s3_bucket_name = \(.*\)/s3_bucket_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/domain_name = \(.*\)/domain_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/route53_zone_id = \(.*\)/route53_zone_id = "\1"/' terraform/terraform.tfvars
+          sed -i 's/key_name = \(.*\)/key_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/allowed_ssh_ip = \(.*\)/allowed_ssh_ip = "\1"/' terraform/terraform.tfvars
 
       - name: Run Terraform Plan
         run: |
@@ -68,11 +72,15 @@ jobs:
           terraform_wrapper: false
 
       - name: Create tfvars file from secret
+        run: echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
+  
+      - name: Edit tfvars file to add quotes
         run: |
-          echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
-          printf "%s" "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars2
-          cat terraform/terraform.tfvars
-          cat terraform/terraform.tfvars2
+          sed -i 's/s3_bucket_name = \(.*\)/s3_bucket_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/domain_name = \(.*\)/domain_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/route53_zone_id = \(.*\)/route53_zone_id = "\1"/' terraform/terraform.tfvars
+          sed -i 's/key_name = \(.*\)/key_name = "\1"/' terraform/terraform.tfvars
+          sed -i 's/allowed_ssh_ip = \(.*\)/allowed_ssh_ip = "\1"/' terraform/terraform.tfvars
 
       - name: Run Terraform apply
         run: |
