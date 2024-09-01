@@ -45,7 +45,6 @@ resource "aws_cloudfront_distribution" "cdn" {
   # }
 
   origin {
-    domain_name = aws_instance.web.public_dns
     origin_id   = "EC2-Origin"
 
     custom_origin_config {
