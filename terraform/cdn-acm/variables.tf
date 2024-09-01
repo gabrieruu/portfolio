@@ -5,3 +5,7 @@ variable "domain_name" {
 variable "route53_zone_id" {
   description = "Route53 Hosted Zone ID"
 }
+
+variable "region" {
+  description = "AWS region"
+}

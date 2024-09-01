@@ -1,3 +1,4 @@
+
 resource "aws_lb" "web_lb" {
   name               = "webserver-lb"
   internal           = false
@@ -38,9 +39,7 @@ resource "aws_lb_target_group" "web_tg" {
     unhealthy_threshold = 2
   }
 
-  depends_on = [
-    aws_vpc.main
-  ]
+  depends_on = [aws_vpc.main]
 }
 
 resource "aws_lb_target_group_attachment" "web_tg_attachment" {
@@ -48,9 +47,7 @@ resource "aws_lb_target_group_attachment" "web_tg_attachment" {
   target_id        = aws_instance.web.id
   port             = 80
 
-  depends_on = [
-    aws_instance.web
-  ]
+  depends_on = [aws_instance.web]
 }
 
 resource "aws_lb_listener" "https" {
@@ -58,8 +55,8 @@ resource "aws_lb_listener" "https" {
   port              = 443
   protocol          = "HTTPS"
 
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = aws_acm_certificate.certificate.arn
+  ssl_policy      = "ELBSecurityPolicy-2016-08"
+  certificate_arn = aws_acm_certificate.certificate.arn
 
   default_action {
     type             = "forward"

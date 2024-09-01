@@ -13,7 +13,8 @@ provider "aws" {
 }
 
 module "acm" {
-  source = "./cdn-acm"
-  domain_name = var.domain_name
+  source          = "./cdn-acm"
+  domain_name     = var.domain_name
   route53_zone_id = var.route53_zone_id
+  region          = "us-east-1"
 }
