@@ -15,7 +15,7 @@ docker pull gabrieru/portfolio
 docker run -d --name portfolio -p 8080:8080 gabrieru/portfolio
 
 # Configure Nginx
-cat <<'EOL' > /etc/nginx/conf.d/portfolio.conf
+sudo tee /etc/nginx/conf.d/portfolio.conf > /dev/null <<'EOL'
 server {
     listen 80;
     server_name localhost;
