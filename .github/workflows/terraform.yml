@@ -64,7 +64,11 @@ jobs:
           terraform_wrapper: false
 
       - name: Create tfvars file from secret
-        run: echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
+        run: |
+          echo "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars
+          printf "%s" "${{ secrets.TFVARS_CONTENT }}" > terraform/terraform.tfvars2
+          cat terraform/terraform.tfvars
+          cat terraform/terraform.tfvars2
 
       - name: Run Terraform apply
         run: |
