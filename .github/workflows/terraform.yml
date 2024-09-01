@@ -100,6 +100,5 @@ jobs:
   #       uses: super-linter/super-linter@v7.1.0
   #       env:
   #         FILTER_REGEX_INCLUDE: .*terraform/.*
-  #         VALIDATE_ALL_CODEBASE: true
   #         FIX_TERRAFORM_FMT: true
   #         GITHUB_TOKEN: \$\{{ secrets.GITHUB_TOKEN }}
