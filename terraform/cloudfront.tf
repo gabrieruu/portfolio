@@ -2,15 +2,47 @@ resource "aws_cloudfront_origin_access_identity" "origin_identity" {
   comment = "Origin access identity for S3 bucket"
 }
 
-resource "aws_cloudfront_distribution" "cdn" {
-  origin {
-    domain_name = aws_s3_bucket.media.bucket_regional_domain_name
-    origin_id   = "S3-Origin"
+resource "aws_s3_bucket" "media" {
+  bucket = var.s3_bucket_name
 
-    s3_origin_config {
-      origin_access_identity = aws_cloudfront_origin_access_identity.origin_identity.cloudfront_access_identity_path
-    }
+  tags = {
+    Name = "MediaBucketPortfolio"
+    Type = "S3Bucket"
   }
+}
+
+resource "aws_s3_bucket_acl" "media_acl" {
+  bucket = aws_s3_bucket.media.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_bucket_policy" "media_bucket_policy" {
+  bucket = aws_s3_bucket.media.id
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Principal = {
+          AWS = aws_cloudfront_origin_access_identity.origin_identity.iam_arn
+        },
+        Action   = "s3:GetObject",
+        Resource = "${aws_s3_bucket.media.arn}/*"
+      }
+    ]
+  })
+}
+
+resource "aws_cloudfront_distribution" "cdn" {
+  # origin {
+  #   domain_name = aws_s3_bucket.media.bucket_regional_domain_name
+  #   origin_id   = "S3-Origin"
+
+  #   s3_origin_config {
+  #     origin_access_identity = aws_cloudfront_origin_access_identity.origin_identity.cloudfront_access_identity_path
+  #   }
+  # }
 
   origin {
     domain_name = aws_instance.web.public_dns
@@ -46,24 +78,24 @@ resource "aws_cloudfront_distribution" "cdn" {
     max_ttl     = 86400
   }
 
-  ordered_cache_behavior {
-    path_pattern           = "/static/*"
-    target_origin_id       = "S3-Origin"
-    viewer_protocol_policy = "redirect-to-https"
-    allowed_methods        = ["GET", "HEAD", "OPTIONS"]
-    cached_methods         = ["GET", "HEAD"]
+  # ordered_cache_behavior {
+  #   path_pattern           = "/static/*"
+  #   target_origin_id       = "S3-Origin"
+  #   viewer_protocol_policy = "redirect-to-https"
+  #   allowed_methods        = ["GET", "HEAD", "OPTIONS"]
+  #   cached_methods         = ["GET", "HEAD"]
 
-    forwarded_values {
-      query_string = false
-      cookies {
-        forward = "none"
-      }
-    }
+  #   forwarded_values {
+  #     query_string = false
+  #     cookies {
+  #       forward = "none"
+  #     }
+  #   }
 
-    min_ttl     = 0
-    default_ttl = 86400
-    max_ttl     = 31536000
-  }
+  #   min_ttl     = 0
+  #   default_ttl = 86400
+  #   max_ttl     = 31536000
+  # }
 
   viewer_certificate {
     acm_certificate_arn      = aws_acm_certificate_validation.cert_validation.certificate_arn
@@ -85,7 +117,7 @@ resource "aws_cloudfront_distribution" "cdn" {
   }
 
   depends_on = [
-    aws_s3_bucket.media,
+    # aws_s3_bucket.media,
     aws_instance.web,
     aws_acm_certificate_validation.cert_validation
   ]
@@ -93,4 +125,12 @@ resource "aws_cloudfront_distribution" "cdn" {
 
 output "domain_name" {
   value = aws_cloudfront_distribution.cdn.domain_name
+}
+
+output "bucket_name" {
+  value = aws_s3_bucket.media.bucket
+}
+
+output "origin_id" {
+  value = aws_s3_bucket.media.id
 }
