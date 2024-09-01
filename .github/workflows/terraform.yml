@@ -87,3 +87,19 @@ jobs:
           cd $GITHUB_WORKSPACE/terraform
           terraform init
           terraform apply --auto-approve --var-file=terraform.tfvars
+
+  # lint:
+  #   name: Lint
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: Lint
+  #       uses: super-linter/super-linter@v7.1.0
+  #       env:
+  #         FILTER_REGEX_INCLUDE: .*terraform/.*
+  #         VALIDATE_ALL_CODEBASE: true
+  #         FIX_TERRAFORM_FMT: true
+  #         GITHUB_TOKEN: \$\{{ secrets.GITHUB_TOKEN }}
