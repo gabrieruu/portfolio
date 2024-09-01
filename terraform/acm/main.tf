@@ -1,7 +1,3 @@
-locals {
-  region_specific_suffix = "us-east-1"
-}
-
 terraform {
   required_version = ">= 0.12"
   required_providers {
@@ -29,7 +25,7 @@ resource "aws_acm_certificate" "certificate" {
 resource "aws_route53_record" "cert_validation" {
   for_each = {
     for dvo in aws_acm_certificate.certificate.domain_validation_options : dvo.domain_name => {
-      name   = "${dvo.resource_record_name}.${local.region_specific_suffix}"
+      name   = dvo.resource_record_name
       type   = dvo.resource_record_type
       record = dvo.resource_record_value
     }
