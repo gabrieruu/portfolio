@@ -43,7 +43,8 @@ resource "aws_cloudfront_distribution" "cdn" {
   is_ipv6_enabled     = true
 
   default_cache_behavior {
-    target_origin_id       = "EC2-Origin"
+    path_pattern           = "/static/*"
+    target_origin_id       = "S3-Origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -56,8 +57,8 @@ resource "aws_cloudfront_distribution" "cdn" {
     }
 
     min_ttl     = 0
-    default_ttl = 3600
-    max_ttl     = 86400
+    default_ttl = 86400
+    max_ttl     = 31536000
   }
 
   ordered_cache_behavior {
