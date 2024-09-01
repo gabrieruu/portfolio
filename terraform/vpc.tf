@@ -31,7 +31,7 @@ resource "aws_internet_gateway" "igw" {
 data "aws_route_table" "main" {
   filter {
     name   = "vpc-id"
-    values = [var.vpc_id]
+    values = [aws_vpc.main.id]
   }
 
   filter {
