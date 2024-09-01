@@ -29,10 +29,14 @@ resource "aws_internet_gateway" "igw" {
 }
 
 data "aws_route_table" "main" {
-  vpc_id = aws_vpc.main.id
   filter {
-    name   = "association.subnet-id"
-    values = aws_subnet.public[*].id
+    name   = "vpc-id"
+    values = [var.vpc_id]
+  }
+
+  filter {
+    name   = "association.main"
+    values = ["true"]
   }
 }
 
