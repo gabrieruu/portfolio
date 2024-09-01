@@ -1,5 +1,5 @@
 resource "aws_route53_record" "cdn_record" {
-  zone_id = var.zone_id
+  zone_id = var.route53_zone_id
   name    = var.domain_name
   type    = "A"
 
