@@ -1,5 +1,21 @@
+terraform {
+  required_version = ">= 0.12"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+
+  backend "s3" {
+    bucket = "terraform-state-381491983236"
+    key    = "acm/terraform.tfstate"
+    region = "sa-east-1"
+  }
+}
+
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1" 
 }
 
 resource "aws_acm_certificate" "certificate" {
@@ -32,7 +48,6 @@ resource "aws_route53_record" "cert_validation" {
     ignore_changes = [records]
   }
 }
-
 
 resource "aws_acm_certificate_validation" "cert_validation" {
   certificate_arn         = aws_acm_certificate.certificate.arn

@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Terraform Plan
         run: |
-          cd $GITHUB_WORKSPACE/terraform
+          cd $GITHUB_WORKSPACE/terraform/acm
           terraform init
           terraform plan --var-file=terraform.tfvars
 
@@ -84,6 +84,6 @@ jobs:
 
       - name: Run Terraform apply
         run: |
-          cd $GITHUB_WORKSPACE/terraform
+          cd $GITHUB_WORKSPACE/terraform/acm
           terraform init
           terraform apply --auto-approve --var-file=terraform.tfvars
