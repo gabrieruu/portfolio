@@ -21,7 +21,7 @@ variable "instance_type" {
 
 variable "ami_id" {
   description = "AMI ID for the web server"
-  default     = "ami-02fa57d93f94ce999" # Amazon Linux 2023 AMI 2023.5.20240819.0 x86_64 HVM kernel-6.1
+  default     = "ami-07a943af5a5ec252b" # Amazon Linux 2 Kernel 5.10 AMI 2.0.20240816.0 x86_64 HVM gp2
 }
 
 variable "s3_bucket_name" {
