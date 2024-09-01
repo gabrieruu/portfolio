@@ -14,7 +14,7 @@ resource "aws_instance" "web" {
   }
 
   depends_on = [
-    aws_acm_certificate_validation.cert_validation,
-    aws_route53_record.cert_validation
+    aws_security_group.web_sg,
+    aws_subnet.public
   ]
 }
