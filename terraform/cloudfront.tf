@@ -43,7 +43,6 @@ resource "aws_cloudfront_distribution" "cdn" {
   is_ipv6_enabled     = true
 
   default_cache_behavior {
-    path_pattern           = "/static/*"
     target_origin_id       = "S3-Origin"
     viewer_protocol_policy = "redirect-to-https"
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
