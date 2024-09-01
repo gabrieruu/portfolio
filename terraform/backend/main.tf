@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 terraform {
   required_version = "~> 1.8"
 
@@ -13,4 +15,6 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_caller_identity" "current" {}
+module "acm" {
+  source = "./acm"
+}
