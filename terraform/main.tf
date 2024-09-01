@@ -14,4 +14,6 @@ provider "aws" {
 
 module "acm" {
   source = "./acm"
+  domain_name = var.domain_name
+  route53_zone_id = var.route53_zone_id
 }

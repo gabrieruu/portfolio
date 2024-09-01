@@ -6,12 +6,6 @@ terraform {
       version = "~> 3.0"
     }
   }
-
-  backend "s3" {
-    bucket = "terraform-state-381491983236"
-    key    = "acm/terraform.tfstate"
-    region = "sa-east-1"
-  }
 }
 
 provider "aws" {
