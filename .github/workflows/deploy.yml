@@ -116,7 +116,6 @@ jobs:
           tags: gabrieru/portfolio:latest
 
   deploy:
-    name: Deploy to EC2
     runs-on: ubuntu-latest
     needs: build-push
 
